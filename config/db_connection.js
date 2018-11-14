@@ -21,7 +21,7 @@ var testConnection   = mysql.createConnection({
   dateStrings:true,
   timezone : 'utc'
 });
-var asyncTestConnection =  mysql2.createConnection({
+var asyncTestConnection =  mysql2.createPool({
   connectionLimit:50,
   host     : process.env.DB_HOST,
   user     : process.env.DB_USERNAME,

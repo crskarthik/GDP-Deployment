@@ -11,7 +11,6 @@ var flash = require('connect-flash');
 var crypto = require('crypto');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
-var connection = require('./config/db_connection');
 var sess = require('express-session');
 var Store = require('express-session').Store;
 var BetterMemoryStore = require(__dirname + '/memory');
