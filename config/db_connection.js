@@ -4,29 +4,29 @@ var mysql2 = require('mysql2/promise');
 var userConnection   = mysql.createConnection({
   supportBigNumbers: true,
   bigNumberStrings: true,
-  host     : "localhost",
-  user     : "root",
-  password : "",
-  database : "db_users",
+  host     : process.env.DB_HOST,
+  user     : process.env.DB_USERNAME,
+  password : process.env.DB_PASSWORD,
+  database : process.env.DB_USERS,
   dateStrings:true,
   timezone : 'utc'
 });
 var testConnection   = mysql.createConnection({
   supportBigNumbers: true,
   bigNumberStrings: true,
-  host     : "localhost",
-  user     : "root",
-  password : "",
-  database : "test",
+  host     : process.env.DB_HOST,
+  user     : process.env.DB_USERNAME,
+  password : process.env.DB_PASSWORD,
+  database : process.env.DB_TEST,
   dateStrings:true,
   timezone : 'utc'
 });
 var asyncTestConnection =  mysql2.createConnection({
   connectionLimit:50,
-  host     : "localhost",
-  user     : "root",
-  password : "",
-  database : "test",
+  host     : process.env.DB_HOST,
+  user     : process.env.DB_USERNAME,
+  password : process.env.DB_PASSWORD,
+  database : process.env.DB_TEST,
   dateStrings:true,
   timezone : 'utc'
 })
