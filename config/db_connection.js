@@ -4,7 +4,7 @@ var mysql2 = require('mysql2/promise');
 var userConnection   = mysql.createConnection({
   supportBigNumbers: true,
   bigNumberStrings: true,
-  host     : process.env.DB_HOST,
+  host     : process.env.DB_USERS_DB_HOST,
   user     : process.env.DB_USERNAME,
   password : process.env.DB_PASSWORD,
   database : process.env.DB_USERS,
@@ -14,7 +14,7 @@ var userConnection   = mysql.createConnection({
 var testConnection   = mysql.createConnection({
   supportBigNumbers: true,
   bigNumberStrings: true,
-  host     : process.env.DB_HOST,
+  host     : process.env.DB_TEST_HOST,
   user     : process.env.DB_USERNAME,
   password : process.env.DB_PASSWORD,
   database : process.env.DB_TEST,
@@ -23,7 +23,7 @@ var testConnection   = mysql.createConnection({
 });
 var asyncTestConnection =  mysql2.createPool({
   connectionLimit:50,
-  host     : process.env.DB_HOST,
+  host     : process.env.DB_TEST_HOST,
   user     : process.env.DB_USERNAME,
   password : process.env.DB_PASSWORD,
   database : process.env.DB_TEST,

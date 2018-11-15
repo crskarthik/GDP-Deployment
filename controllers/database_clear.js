@@ -5,7 +5,7 @@ const api = express.Router()
 console.log("inside controllers/database_clear.js")
 var connection = mysql.createPool({
     connectionLimit: 50,
-    host     : process.env.DB_HOST,
+    host     : process.env.DB_TEST_HOST,
     user     : process.env.DB_USERNAME,
     password : process.env.DB_PASSWORD,
     database : process.env.DB_TEST,
