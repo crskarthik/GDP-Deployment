@@ -6,12 +6,12 @@ var connection = require("../config/db_connection").testConnection;
 console.log("Inside controllers/report_export.js");
 api.get('/flag', function (req, res) {
             console.log("database connection successful");
-            connection.query("SELECT `Raiser/Clearer` AS `NAME`, COUNT(Flag) AS `Number of Flags created` FROM `flags` WHERE EVENT='RAISED' GROUP BY `Raiser/Clearer`", function (error, raisedCount, fields) {
+            connection.query("SELECT `Raiser/Clearer` AS `NAME`, COUNT(Flag) AS `Number of Flags created` FROM `Flags` WHERE EVENT='RAISED' GROUP BY `Raiser/Clearer`", function (error, raisedCount, fields) {
                 if (!!error) {
                     console.log('Error connecting to' + table_name);
                     console.error(error);
                 } else {
-                    connection.query("SELECT `Raiser/Clearer` AS `NAME`, COUNT(Flag) AS `Number of Flags created` FROM `flags` WHERE EVENT='CLEARED' GROUP BY `Raiser/Clearer`", function (error, clearedCleared, fields) {
+                    connection.query("SELECT `Raiser/Clearer` AS `NAME`, COUNT(Flag) AS `Number of Flags created` FROM `Flags` WHERE EVENT='CLEARED' GROUP BY `Raiser/Clearer`", function (error, clearedCleared, fields) {
                         if (!!error) {
                             console.log('Error connecting to' + table_name);
                             console.error(error);
@@ -59,12 +59,12 @@ api.get('/flag', function (req, res) {
 api.get('/meetings', function (req, res) {
 
             console.log("database connection successful");
-            connection.query("SELECT `Schedule Owner` AS `NAME`,COUNT(`Event`) AS `Number of Meetings` FROM `appointments` WHERE `Event` = 'CREATED' GROUP BY `Schedule Owner`", function (error, createdCount, fields) {
+            connection.query("SELECT `Schedule Owner` AS `NAME`,COUNT(`Event`) AS `Number of Meetings` FROM `Appointments` WHERE `Event` = 'CREATED' GROUP BY `Schedule Owner`", function (error, createdCount, fields) {
                 if (!!error) {
                     console.log('Error connecting to' + table_name);
                     console.error(error);
                 } else {
-                    connection.query("SELECT `Schedule Owner` AS `NAME`,COUNT(`Event`) AS `Number of Meetings` FROM `appointments` WHERE `Event` = 'CANCELLED' GROUP BY `Schedule Owner`", function (error, cancelledCount, fields) {
+                    connection.query("SELECT `Schedule Owner` AS `NAME`,COUNT(`Event`) AS `Number of Meetings` FROM `Appointments` WHERE `Event` = 'CANCELLED' GROUP BY `Schedule Owner`", function (error, cancelledCount, fields) {
                         if (!!error) {
                             console.log('Error connecting to' + table_name);
                             console.error(error);
